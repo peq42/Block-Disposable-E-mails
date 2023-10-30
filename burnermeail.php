@@ -2,7 +2,7 @@
 <?php
 /*
 Plugin Name:  Block Disposable E-mails
-Plugin URI:   https://peq42.com
+Plugin URI:   https://github.com/peq42/Block-Disposable-E-mails
 Description:  Block Disposable Burner E-mails from being used in your website's register
 Version:      1.0
 Author:       WPBeginner
