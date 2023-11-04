@@ -27,21 +27,18 @@ function email_check($errors, $sanitized_user_login, $user_email) {
 	
 	$txt_records = dns_get_record($user_email_domain, DNS_TXT);
 	if($txt_records){
-		
-
-	
-			$spf_found = false;
-			foreach ($txt_records as $record) {
-				if (isset($record['txt']) && preg_match('/v=spf1/i', $record['txt'])) {
-					$spf_found = true;
-					break;
-				}
+		$spf_found = false;
+		foreach ($txt_records as $record) {
+			if (isset($record['txt']) && preg_match('/v=spf1/i', $record['txt'])) {
+				$spf_found = true;
+				break;
 			}
+		}
 
-			if ($spf_found==false) {
-				$errors->add('email_mismatch', __('Email provider is not allowed.', 'text-domain'));
-				return $errors;
-			} 
+		if ($spf_found==false) {
+			$errors->add('email_mismatch', __('Email provider is not allowed.', 'text-domain'));
+			return $errors;
+		} 
 		
 
 	}else{
